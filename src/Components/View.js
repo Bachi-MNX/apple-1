@@ -16,13 +16,13 @@ function View() {
 
     const { id } = queryString.parse(location.search)
     const addToCart = async  () => {
-      await axios.patch('https://apple-store-app.herokuapp.com/addToCart', {
+      await axios.patch('http://localhost:5002/addToCart', {
         id: id
       }).then(window.location.reload())
     }
 
     const getData = async () => {
-        const { data } = await axios.get('https://apple-store-app.herokuapp.com/getProducts')
+        const { data } = await axios.get('http://localhost:5002/getProducts')
         if (data) {
             const found = data.find(item => item._id == id ? item : "")
             if (found) {

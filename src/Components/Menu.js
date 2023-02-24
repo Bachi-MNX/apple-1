@@ -18,7 +18,7 @@ const Menu = () => {
     const navigate = useNavigate()
 
     const search = async (event) => {
-        const { data } = await axios.get('https://apple-store-app.herokuapp.com/getProducts')
+        const { data } = await axios.get('http://localhost:5002/getProducts')
         if (data) {
             var items = []
             data.map(item => item.title.toLowerCase().includes(input.toLowerCase()) ? items.push(item) : "")

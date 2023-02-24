@@ -13,7 +13,7 @@ const Navbar = () => {
   const total = []
 
   async function getData(){
-    const {data} = await axios.get("https://apple-store-app.herokuapp.com/getCart")
+    const {data} = await axios.get("http://localhost:5002/getCart")
     if(data){
       setProduct(data)
        data.map(item => total.push(item._id ))
@@ -48,7 +48,7 @@ const Navbar = () => {
   ]
   return (
     
-    <div className='nav-bar' data-aos="zoom-out-down">  
+    <div className='nav-bar' >
         <Link to="/" onClick={() =>  window.scrollTo({top: 0, behavior: 'smooth'})}>
           <img className='logo'
                 src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png'>

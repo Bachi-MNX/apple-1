@@ -10,14 +10,14 @@ const Cart = (props) => {
   const [total, setTotal]= React.useState()
 
   async function getData(){
-    const {data} = await axios.get("http://localhost:5000/getCart")
+    const {data} = await axios.get("http://localhost:5002/getCart")
     if(data){
       setProduct(data)
     }
   }
 
   const clearCart = async () => {
-    await axios.patch('http://localhost:5000/clearCart').then(window.location.reload())
+    await axios.patch('http://localhost:5002/clearCart').then(window.location.reload())
   }
 
   React.useEffect(() => {
@@ -26,8 +26,8 @@ const Cart = (props) => {
   }, [])
   
   const getTotal = async () => {
-    const {data} = await axios.get('http://localhost:5000/getTotal')
-    if(data){
+    const {data} = await axios.get('http://localhost:5002/getTotal')
+    if(data.length > 0){
       var t = data.reduce((a ,b) => a+b)
       setTotal(t)
     }

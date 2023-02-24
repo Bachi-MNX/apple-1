@@ -8,19 +8,23 @@ const Product = (props) => {
   const [state, setState] = React.useState(props.inCart)
 
   const addToCart = async  () => {
-    await axios.patch('http://localhost:5000/addToCart', {
+    await axios.patch('http://localhost:5002/addToCart', {
       id: props.id
-    })
+    }).then(window.location.reload())
   }
   return (
-    <Link className='link col-sm justify-content-center' to={`/details?&id=${props.id}&name=${props.title}`}
-    data-aos="zoom-in" >
     <Card
+    data-aos="zoom-in" 
     hoverable
     style={{
         width: 340,
     }}
-    cover={<img alt="example" src={props.img} />}
+    cover={
+      <Link className='link col-sm justify-content-center' to={`/details?&id=${props.id}&name=${props.title}`}>
+        <img alt="example" src={props.img} />
+      </Link>
+    
+    }
 >
     <Meta title={props.title} description={`Price: $${props.price}`} />
     {
@@ -30,7 +34,7 @@ const Product = (props) => {
         : 
         <Link to="/cart"><button  className='card-button2'>Go to Cart</button></Link>
       }
-</Card></Link>
+</Card>
   )
 }
 

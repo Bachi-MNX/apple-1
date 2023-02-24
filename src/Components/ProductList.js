@@ -14,7 +14,7 @@ const ProductList = () => {
   
 
   const getData = async () => {
-    const {data} = await axios.get("http://localhost:5000/getProducts")
+    const {data} = await axios.get("http://localhost:5002/getProducts")
 
     if(data){
       setStoreProduct(data)

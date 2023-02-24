@@ -12,7 +12,7 @@ function Searchpage() {
     const { key } = queryString.parse(location.search)
 
     const search = async () => {
-        const { data } = await axios.get('https://apple-store-app.herokuapp.com/getProducts')
+        const { data } = await axios.get('http://localhost:5002/getProducts')
         if (data) {
             var items = []
             data.map(item => item.title.toLowerCase().includes(key.toLowerCase()) ? items.push(item) : "")

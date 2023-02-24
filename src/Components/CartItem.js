@@ -8,7 +8,7 @@ const CartItem = (props) => {
     const [loader, setLoader] = React.useState(false)
   
     const removeFromCart = async () => {
-      await axios.patch('http://localhost:5000/removeFromCart', {
+      await axios.patch('http://localhost:5002/removeFromCart', {
         id: props.id
       }).then(window.location.reload())
 
@@ -25,7 +25,7 @@ const CartItem = (props) => {
       }
       async function updateQty(){
         setLoader(true)
-        await axios.patch('http://localhost:5000/updateQty', {
+        await axios.patch('http://localhost:5002/updateQty', {
           id: props.id,
           qty: qty
       }).then(setLoader)

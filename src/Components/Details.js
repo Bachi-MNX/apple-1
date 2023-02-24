@@ -13,12 +13,12 @@ const Details = (props) => {
     var { id } = queryString.parse(location.search)
 
     const addToCart = async  () => {
-      await axios.patch('https://apple-store-app.herokuapp.com/addToCart', {
+      await axios.patch('http://localhost:5002/addToCart', {
         id: id
       }).then(window.location.reload())
     }
     React.useEffect(() => {
-        fetch('https://apple-store-app.herokuapp.com/getProducts')
+        fetch('http://localhost:5002/getProducts')
             .then(res => res.json())
             .then(json => setState(json))
     }, [])

@@ -20,7 +20,7 @@ function ByCategory(props) {
     const { category } = queryString.parse(location.search)
 
     const search = async () => {
-        const { data } = await axios.get('https://apple-store-app.herokuapp.com/getProducts')
+        const { data } = await axios.get('http://localhost:5002/getProducts')
         if (data) {
             var items = []
             data.map(item => item.category.toLowerCase().includes(category.toLowerCase()) ? items.push(item) : "")

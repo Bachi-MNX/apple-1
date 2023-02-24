@@ -17,7 +17,7 @@ const Carousel = (props) => {
   
 
   const getData = async () => {
-    const {data} = await axios.get("https://apple-store-app.herokuapp.com/getProducts")
+    const {data} = await axios.get("http://localhost:5002/getProducts")
 
     if(data){
       setCarousel(data)
